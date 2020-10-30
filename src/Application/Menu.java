@@ -29,7 +29,12 @@ public class Menu {
 					e.printStackTrace();
 				}
 			} else if (selection.equals("3")) {
-//				deleteShoe();
+				try {
+					deleteShoe();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
 			}
 
 			System.out.println("Press Enter to continue");
@@ -48,7 +53,7 @@ public class Menu {
 	}
 
 	private void createShoe() throws SQLException {
-		System.out.print("Enter shoe ID");
+		System.out.print("Enter Shoe ID");
 		int id = Integer.parseInt(scanner.nextLine());
 		System.out.print("Enter shoe Name ");
 		String shoename = scanner.nextLine();
@@ -56,4 +61,9 @@ public class Menu {
 
 	}
 
+	private void deleteShoe() throws SQLException {
+		System.out.println("Enter shoe ID to remove  ");
+		int id = Integer.parseInt(scanner.nextLine());
+		shoeDao.deleteShoebyId(id);
+	}
 }
