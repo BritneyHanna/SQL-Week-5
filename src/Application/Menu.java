@@ -1,5 +1,6 @@
 package Application;
 
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -18,18 +19,17 @@ public class Menu {
 			printMenu();
 			selection = scanner.nextLine();
 
-			try {
+			if (selection.equals("1")) {
+//				displayShoe();}
+			} else if (selection.equals("2")) {
+				try {
+					createShoe();
+				} catch (SQLException e) {
 
-				if (selection.equals("1")) {
-//				displayShoe();
-				} else if (selection.equals("2")) {
-//				createShoe();
-				} else if (selection.equals("3")) {
-//				deleteShoe();
+					e.printStackTrace();
 				}
-
-			} finally {
-
+			} else if (selection.equals("3")) {
+//				deleteShoe();
 			}
 
 			System.out.println("Press Enter to continue");
@@ -45,6 +45,15 @@ public class Menu {
 			System.out.println(i + 1 + ")" + options.get(i));
 
 		}
+	}
+
+	private void createShoe() throws SQLException {
+		System.out.print("Enter shoe ID");
+		int id = Integer.parseInt(scanner.nextLine());
+		System.out.print("Enter shoe Name ");
+		String shoename = scanner.nextLine();
+		shoeDao.createNewShoe(id, shoename);
+
 	}
 
 }
