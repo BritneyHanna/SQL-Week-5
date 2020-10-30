@@ -32,32 +32,3 @@ public class DbConnection {
 	}
 
 }
-
-//
-//	public static void main(String[] args) throws SQLException {
-//		Connection conn = null;
-//		final String connectionStr = "jdbc:mysql://localhost:3306/shoes";
-//
-//		try {
-//			System.out.println("Attempting to connect to DB...");
-//
-//			conn = DriverManager.getConnection(connectionStr, "root", "password");
-//
-//			System.out.println("Successfully connected to Shoes DB\n");
-//
-//		} catch (SQLException e) {
-//			System.out.println("Unable to connect to Database");
-//			e.printStackTrace();
-//
-//		} finally {
-//			if (conn != null) {
-//				System.out.println("\nClosing DB connection...");
-//
-//				conn.close();
-//
-//				System.out.println("Successfully disconnected from DB");
-//
-//			}
-//		}
-//
-//	}
