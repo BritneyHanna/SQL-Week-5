@@ -20,8 +20,15 @@ public class Menu {
 			selection = scanner.nextLine();
 
 			if (selection.equals("1")) {
-//				displayShoe();}
-			} else if (selection.equals("2")) {
+				try {
+					displayShoe();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+			}
+
+			else if (selection.equals("2")) {
 				try {
 					createShoe();
 				} catch (SQLException e) {
@@ -62,8 +69,15 @@ public class Menu {
 	}
 
 	private void deleteShoe() throws SQLException {
-		System.out.println("Enter shoe ID to remove  ");
+		System.out.print("Enter shoe ID to remove  ");
 		int id = Integer.parseInt(scanner.nextLine());
 		shoeDao.deleteShoebyId(id);
+	}
+
+	private void displayShoe() throws SQLException {
+		System.out.print("Enter shoe ID to display ");
+		int id = Integer.parseInt(scanner.nextLine());
+		shoeDao.displayShoebyId(id);
+
 	}
 }
