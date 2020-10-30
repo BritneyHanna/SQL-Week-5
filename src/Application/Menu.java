@@ -44,7 +44,7 @@ public class Menu {
 				}
 			}
 
-			System.out.println("Press Enter to continue");
+			System.out.println("Press Enter to make another selection");
 			scanner.nextLine();
 
 		} while (!selection.equals("-1"));

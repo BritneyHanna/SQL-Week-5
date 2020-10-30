@@ -37,7 +37,7 @@ public class ShoeDao {
 		ps.executeQuery();
 		ResultSet rs = ps.executeQuery();
 		while (rs.next()) {
-			System.out.println(rs.getInt("shoe_id") + " " + rs.getString("shoe_name"));
+			System.out.println("The shoe id and name are: " + rs.getInt("shoe_id") + " " + rs.getString("shoe_name"));
 		}
 
 	}
