@@ -10,7 +10,7 @@ import Dao.ShoeDao;
 public class Menu {
 	private ShoeDao shoeDao = new ShoeDao();
 	private Scanner scanner = new Scanner(System.in);
-	private List<String> options = Arrays.asList("Display a shoe", "Add a new Shoe", "Delete Shoe");
+	private List<String> options = Arrays.asList("Display a shoe", "Add a new Shoe", "Delete Shoe", "Update a Shoe");
 
 	public void start() {
 
@@ -38,6 +38,13 @@ public class Menu {
 			} else if (selection.equals("3")) {
 				try {
 					deleteShoe();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+			} else if (selection.equals("4")) {
+				try {
+					updateShoe();
 				} catch (SQLException e) {
 
 					e.printStackTrace();
@@ -80,4 +87,13 @@ public class Menu {
 		shoeDao.displayShoebyId(id);
 
 	}
+
+	private void updateShoe() throws SQLException {
+		System.out.print("Enter Shoe Name");
+		String shoename = scanner.nextLine();
+		System.out.print("Enter shoe Id ");
+		int id = Integer.parseInt(scanner.nextLine());
+		shoeDao.updateShoebyId(shoename, id);
+	}
+
 }
